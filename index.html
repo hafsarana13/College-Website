@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-adsense-account" content="ca-pub-2605536906605283">
+    <title>Goverment Girls Degree College Baldia Town Karachi</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <!-----NavigationBar---->
+    <section id="nav-bar">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="index.php?#top"><img src="./img/logo.jpeg"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html?#top">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html?#ctip">COLLEGE TEACHING INTERNS PROGRAM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html#colleges-table">COLLEGES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html?#team">OUR TEAM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./index.html?#contact">CONTACT</a>
+                        </li>
+                        <!--<li class="nav-item">-->
+                        <!--  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Search</button>-->
+                        <!--</li>-->
+                        <!--<li class="nav-item">-->
+                        <!--  <a href="https://www.dgcs.gos.pk/portal/collegeeducation/biometric_verification.php">-->
+                        <!--    <button type="button" class="btn btn-info" data-toggle="modal" data-target="_blank">GET CERTIFICATE</button>-->
+                        <!--  </a>-->
+
+                        <!--</li>-->
+                        <li class="nav-item">
+                         <a href="https://hafsarana13.github.io/Login-Page/" target="_blank">
+                 <button type="button" style="background: #009879 !important; color: #fff !important" class="btn">Login</button>
+                    </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <script async src="https://cse.google.com/cse.js?cx=82f9483b6dabefa3d"></script>
+                    <div>
+                        <div class="gcse-search"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <style>
+        .marker {
+            background-image: url('./img/pin.png');
+            background-size: cover;
+            width: 15px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup {
+            max-width: 400px;
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        }
+
+        a:hover,
+        a:active {
+            color: #fff;
+        }
+
+        .content {
+            padding: 0 5rem;
+        }
+
+        .my-popup {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .3);
+            display: grid;
+            place-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 200ms ease-in-out opacity;
+            z-index: 20;
+        }
+
+        .my-popup-content {
+            width: clamp(500px, 90vw, 600px);
+            background-color: #fff;
+            /* padding: clamp(1.5rem, 100vw, 3rem); */
+            box-shadow: 0 0 .5em rgba(0, 0, 0, .5);
+            border-radius: .5em;
+            opacity: 0;
+            transform: translateY(20%);
+            transition: 200ms ease-in-out opacity, 200ms ease-in-out transform;
+            position: relative;
+        }
+
+        .my-popup h1 {
+            position: absolute;
+            top: 2rem;
+            right: 0;
+            line-height: 1;
+            cursor: pointer;
+            user-select: none;
+            color: #fff;
+        }
+
+        .my-popup h1:active {
+            transform: scale(.9);
+        }
+
+        .my-showPopup {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+    </style>
+
+
+
+    <!-- <div class="my-popup">
+        <div class="my-popup-content">
+            <h1>X</h1>
+            <img src="img/poster.jpeg" width="600" height="650" alt="" />
+        </div>
+    </div> -->
+
+    <!-------Slider------->
+    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+        <ol class="carousel-indicators">
+            <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
+            <li data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+            <li data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img alt="First slide" class="d-block w-100" src="./img/college.jpg">
+            </div>
+            <div class="carousel-item">
+                <img alt="Second slide" class="d-block w-100" src="img/image1.jpeg">
+            </div>
+            <div class="carousel-item">
+                <img alt="Third slide" class="d-block w-100" src="img/image2.jpeg">
+            </div>
+            <div class="carousel-item">
+                <img alt="fourth slide" class="d-block w-100" src="img/image3.jpeg">
+            </div>
+            <div class="carousel-item">
+                <img alt="fifth slide" class="d-block w-100 h-100" src="img/image4.jpeg">
+            </div>
+        </div><a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button"><span
+      aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span></a> <a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button"><span
+      aria-hidden="true" class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+        <!--<div style="position:absolute; top:400px; left:37%;">-->
+        <!--    <a href="https://www.dgcs.gos.pk/portal/collegeeducation/biometric_verification.php" target="_blank">-->
+        <!--        <button type="button" style="box-shadow: 0 0 20px #17a2b8;" class="btn btn-info" data-toggle="modal" data-target="_blank">GET BIOMETRIC ENROLMENT CERTIFICATE</button>-->
+        <!--      </a>-->
+        <!--</div>-->
+
+    </div>
+
+    <!------Ad------->
+    <section style="background:#bbf7d0;" class="p-5" id="external-links">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-5 mb-4">
+                    <img alt="SIFV" style="height:300px; width:300px;" src="./img/lab-quality-assurance-m.jpg">
+                </div>
+                <div style="display:flex; align-items: center;" class="col-md-7 mb-4 align-center">
+                    <a href="https://hafsarana13.github.io/Student-Form/" target="_blank">
+          <button type="button"
+            style="background: #009879 !important; width: 350px; margin-bottom: 10px"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">STUDENT REGISTRATION FORM</button>
+        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!------Colleges table------->
+    <section class="mt-5" id="external-links">
+        <div class="container">
+
+
+            <div class="row">
+                <div class="col-md-12 text-center align-center mb-4">
+                    <a href="https://seccap.dgcs.gos.pk/?C=S;O=A#/student-attendance" target="_blank">
+          <button type="button"
+            style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px; margin-bottom: 10px"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">CHECK ATTENDANCE </button>
+        </a>
+                </div>
+                <div class="col-md-12 text-center align-center mb-4">
+                   <!--- <a href="https://dgcs.gos.pk/portal/#/bio-metric-certificate" target="_blank">-->
+                        <a href="https://hafsarana13.github.io/Report-Card/" target="_blank">
+          <button type="button"
+            style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px; margin-bottom: 10px"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">STUDENT REPORT CARD</button>
+        </a>
+                </div>
+                <!-- <div class="col-md-12 text-center mb-4">
+        <a href="https://www.dgcs.gos.pk/udocs/#/notifications" target="_blank">
+          <button type="button"
+            style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px; margin-bottom: 10px"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">TRACK APPLICATIONS</button>
+        </a>
+      </div>
+      <div class="col-md-12 text-center mb-4">
+        <a href="https://www.dgcs.gos.pk/udocs/#/notifications" target="_blank">
+          <button type="button" style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px;"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">DOWNLOAD NOTIFICATIONS / ORDERS</button>
+        </a>
+      </div> -->
+                <div class="col-md-12 text-center">
+                    <a href="https://www.dgcs.gos.pk/udocs/#/pdffiles" target="_blank">
+          <button type="button" style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px;"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">Download Promotions List/Seniority
+            Lists</button>
+        </a>
+                </div>
+            </div>
+            <div style="opacity: 0;">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356434691825680" crossorigin="anonymous"></script>
+                <!-- Display ad preview 1 -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5356434691825680" data-ad-slot="6588714641" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!------ctip------->
+    <section id="ctip" style="background: #fff; padding-top: 50px;">
+        <div class="container">
+            <h1 class="mb-5"> Get Digital College Id Card</h1>
+            <div class="row">
+
+                <div class="col-md-12 text-center mb-2">
+                    <a href="https://seccap.dgcs.gos.pk/?C=S;O=A#/student-card" target="_blank">
+          <button type="button"
+            style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px; margin-bottom: 10px"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">COLLEGE ID CARD</button>
+        </a>
+                </div>
+                <div class="col-md-12 text-center mb-4">
+                    <p>College Teaching Interns Program </p>
+                </div>
+
+
+
+
+                
+                <div class="col-md-12 text-center mb-4">
+                    <a href="https://dgcs.gos.pk/pdf/Interns.pdf" target="_blank">
+          <button type="button"
+            style="box-shadow: 0 0 20px #009879; background: #009879 !important; width: 350px; margin-bottom: 10px"
+            class="btn btn-info" data-toggle="modal" data-target="_blank">VACANCY POSITION (College wise)</button>
+        </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!------Colleges table------->
+    <section class="mt-5" id="colleges-table">
+        <div class="container">
+            <h1 class="mb-5">Our Colleges</h1>
+            <!--<script async src="https://cse.google.com/cse.js?cx=82f9483b6dabefa3d"></script>-->
+            <!--<div style="margin-bottom: 40px;">-->
+            <!--    <div class="gcse-search"></div>-->
+            <!--</div>-->
+
+
+            <div class="row mb-3">
+                <div class="col-md-3 mb-3">
+                    <label for="region">Select Region:</label>
+                    <select class="form-control" id="region" name="region">
+            <option value="all">All</option>
+            
+                  <option class="common_selector" value="1">KARACHI</option>
+                
+                  <option class="common_selector" value="2">HYDERABAD</option>
+                
+                  <option class="common_selector" value="3">LARKANA</option>
+                
+                  <option class="common_selector" value="4">MIRPURKHAS</option>
+                
+                  <option class="common_selector" value="5">SHAHEED BENAZIRABAD</option>
+                
+                  <option class="common_selector" value="6">SUKKUR</option>
+                          </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="district">Select District:</label>
+                    <select class="form-control" id="district" name="district">
+            <option value="all">All</option>
+            
+                  <option class="common_selector" value="1">BADIN</option>
+                
+                  <option class="common_selector" value="2">DADU</option>
+                
+                  <option class="common_selector" value="27">GHOTKI</option>
+                
+                  <option class="common_selector" value="3">HYDERABAD</option>
+                
+                  <option class="common_selector" value="16">JACOBABAD</option>
+                
+                  <option class="common_selector" value="4">JAMSHORO</option>
+                
+                  <option class="common_selector" value="10">KARACHI CENTRAL</option>
+                
+                  <option class="common_selector" value="11">KARACHI EAST</option>
+                
+                  <option class="common_selector" value="30">KARACHI KEEMARI</option>
+                
+                  <option class="common_selector" value="12">KARACHI KORANGI</option>
+                
+                  <option class="common_selector" value="13">KARACHI MALIR</option>
+                
+                  <option class="common_selector" value="14">KARACHI SOUTH</option>
+                
+                  <option class="common_selector" value="15">KARACHI WEST </option>
+                
+                  <option class="common_selector" value="17">KASHMORE & KANDHKOT</option>
+                
+                  <option class="common_selector" value="28">KHAIRPUR</option>
+                
+                  <option class="common_selector" value="18">LARKANO</option>
+                
+                  <option class="common_selector" value="5">MATIARI</option>
+                
+                  <option class="common_selector" value="21">MIRPURKHAS</option>
+                
+                  <option class="common_selector" value="24">NAUSHEROFEROZE</option>
+                
+                  <option class="common_selector" value="19">QAMBAR SHAHDADKOT</option>
+                
+                  <option class="common_selector" value="25">SANGHAR</option>
+                
+                  <option class="common_selector" value="26">SHAHEED BENAZIRABAD</option>
+                
+                  <option class="common_selector" value="20">SHIKARPUR</option>
+                
+                  <option class="common_selector" value="6">SUJAWAL</option>
+                
+                  <option class="common_selector" value="29">SUKKUR</option>
+                
+                  <option class="common_selector" value="7">TANDO ALLAHYAR</option>
+                
+                  <option class="common_selector" value="8">TANDO MUHAMMAD KHAN</option>
+                
+                  <option class="common_selector" value="22">THARPARKAR</option>
+                
+                  <option class="common_selector" value="9">THATTA</option>
+                
+                  <option class="common_selector" value="23">UMERKOT</option>
+                          </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="town">Select Taluka / Town:</label>
+                    <select class="form-control" id="town" name="town">
+            <option value="all">All</option>
+            
+                  <option class="common_selector" value="112">AIRPORT </option>
+                
+                  <option class="common_selector" value="120">ARAM BAGAH</option>
+                
+                  <option class="common_selector" value="1">BADIN</option>
+                
+                  <option class="common_selector" value="138">BAKRANI</option>
+                
+                  <option class="common_selector" value="127">BALDIA</option>
+                
+                  <option class="common_selector" value="73">BHRIYA</option>
+                
+                  <option class="common_selector" value="113">BIN QASIM</option>
+                
+                  <option class="common_selector" value="31">BULRI SHAH KARIM</option>
+                
+                  <option class="common_selector" value="59">CHACHRO</option>
+                
+                  <option class="common_selector" value="28">CHAMBAR</option>
+                
+                  <option class="common_selector" value="121">CIVIL LINE</option>
+                
+                  <option class="common_selector" value="122">CLIFTON CANTONMENT</option>
+                
+                  <option class="common_selector" value="6">DADU</option>
+                
+                  <option class="common_selector" value="80">DAHARKI</option>
+                
+                  <option class="common_selector" value="78">DAUR</option>
+                
+                  <option class="common_selector" value="64">DHALI</option>
+                
+                  <option class="common_selector" value="58">DIGRI</option>
+                
+                  <option class="common_selector" value="63">DIPLO</option>
+                
+                  <option class="common_selector" value="137">DOKRI</option>
+                
+                  <option class="common_selector" value="103">Faisal Cantonment</option>
+                
+                  <option class="common_selector" value="88">FAIZ GANJ</option>
+                
+                  <option class="common_selector" value="104">Ferozabad</option>
+                
+                  <option class="common_selector" value="114">GADAP</option>
+                
+                  <option class="common_selector" value="86">GAMBAT</option>
+                
+                  <option class="common_selector" value="123">GARDEN</option>
+                
+                  <option class="common_selector" value="38">GARHI KHAIRO</option>
+                
+                  <option class="common_selector" value="50">GARHI YASEEN</option>
+                
+                  <option class="common_selector" value="33">GHORABARI</option>
+                
+                  <option class="common_selector" value="83">GHOTKI</option>
+                
+                  <option class="common_selector" value="98">GULBERG</option>
+                
+                  <option class="common_selector" value="105">Gulshan-e-Iqbal</option>
+                
+                  <option class="common_selector" value="106">Gulzar-e-Hijri</option>
+                
+                  <option class="common_selector" value="57">H.B MARI</option>
+                
+                  <option class="common_selector" value="19">HALA</option>
+                
+                  <option class="common_selector" value="128">HARBOUR</option>
+                
+                  <option class="common_selector" value="10">HYDERABAD CITY,</option>
+                
+                  <option class="common_selector" value="11">HYDERABAD RURAL</option>
+                
+                  <option class="common_selector" value="115">IBRAHIM HYDERU</option>
+                
+                  <option class="common_selector" value="62">ISLAMKOT</option>
+                
+                  <option class="common_selector" value="36">JACOBABAD</option>
+                
+                  <option class="common_selector" value="142">JAM NAWAZ ALI</option>
+                
+                  <option class="common_selector" value="107">Jamshed Quarters</option>
+                
+                  <option class="common_selector" value="14">JAMSHORO</option>
+                
+                  <option class="common_selector" value="22">JATI</option>
+                
+                  <option class="common_selector" value="29">JHUNDO MAR</option>
+                
+                  <option class="common_selector" value="7">JOHI</option>
+                
+                  <option class="common_selector" value="56">JUDDHO</option>
+                
+                  <option class="common_selector" value="65">KALOI</option>
+                
+                  <option class="common_selector" value="42">KAMBER</option>
+                
+                  <option class="common_selector" value="40">KANDHKOT</option>
+                
+                  <option class="common_selector" value="72">KANDIYARO</option>
+                
+                  <option class="common_selector" value="124">KARACHI CANTONMENT</option>
+                
+                  <option class="common_selector" value="39">KASHMORE</option>
+                
+                  <option class="common_selector" value="35">KETI BUNDER</option>
+                
+                  <option class="common_selector" value="85">KHAIRPUR</option>
+                
+                  <option class="common_selector" value="8">KHAIRPUR NATHAN SHAH</option>
+                
+                  <option class="common_selector" value="84">KHANGARH (KHANPUR)</option>
+                
+                  <option class="common_selector" value="52">KHANPUR</option>
+                
+                  <option class="common_selector" value="23">KHARO CHAN</option>
+                
+                  <option class="common_selector" value="141">KHIPRO</option>
+                
+                  <option class="common_selector" value="89">KINGRI</option>
+                
+                  <option class="common_selector" value="108">KORANGI</option>
+                
+                  <option class="common_selector" value="116">KORANGI CREEK CANTONMENT </option>
+                
+                  <option class="common_selector" value="54">KOT G. MUHAMMAD</option>
+                
+                  <option class="common_selector" value="90">KOTDIJI</option>
+                
+                  <option class="common_selector" value="15">KOTRI</option>
+                
+                  <option class="common_selector" value="67">KUNRI</option>
+                
+                  <option class="common_selector" value="51">LAKHI</option>
+                
+                  <option class="common_selector" value="109">LANDHI</option>
+                
+                  <option class="common_selector" value="136">LARKANO</option>
+                
+                  <option class="common_selector" value="12">LATIFABAD</option>
+                
+                  <option class="common_selector" value="99">LIAQUATABAD</option>
+                
+                  <option class="common_selector" value="125">LYARI</option>
+                
+                  <option class="common_selector" value="117">MALIR CANTONMENT</option>
+                
+                  <option class="common_selector" value="129">MANGO PIR</option>
+                
+                  <option class="common_selector" value="16">MANJHAND</option>
+                
+                  <option class="common_selector" value="130">MANORA CANTONMENT</option>
+                
+                  <option class="common_selector" value="131">MARIPUR</option>
+                
+                  <option class="common_selector" value="20">MATIARI</option>
+                
+                  <option class="common_selector" value="4">MATLI</option>
+                
+                  <option class="common_selector" value="9">MEHAR</option>
+                
+                  <option class="common_selector" value="74">MEHRABPUR</option>
+                
+                  <option class="common_selector" value="44">MIROKHAN</option>
+                
+                  <option class="common_selector" value="24">MIRPUR BATHORO</option>
+                
+                  <option class="common_selector" value="82">MIRPUR MATHELO</option>
+                
+                  <option class="common_selector" value="53">MIRPURKHAS</option>
+                
+                  <option class="common_selector" value="135">MIRPURSAKRO</option>
+                
+                  <option class="common_selector" value="61">MITHI</option>
+                
+                  <option class="common_selector" value="110">MODEL COLONY</option>
+                
+                  <option class="common_selector" value="132">MOMINABAD</option>
+                
+                  <option class="common_selector" value="75">MORO</option>
+                
+                  <option class="common_selector" value="118">MURAD MEMON</option>
+                
+                  <option class="common_selector" value="71">N.FEROZE</option>
+                
+                  <option class="common_selector" value="60">NAGARPARKAR</option>
+                
+                  <option class="common_selector" value="92">NARA</option>
+                
+                  <option class="common_selector" value="47">NASIRABAD</option>
+                
+                  <option class="common_selector" value="76">NAWABSHAH</option>
+                
+                  <option class="common_selector" value="100">NAZIMABAD</option>
+                
+                  <option class="common_selector" value="101">NEW KARACHI</option>
+                
+                  <option class="common_selector" value="94">NEW SUKKUR</option>
+                
+                  <option class="common_selector" value="102">NORTH NAZIMABAD</option>
+                
+                  <option class="common_selector" value="133">ORANGI</option>
+                
+                  <option class="common_selector" value="96">PANO AQIL</option>
+                
+                  <option class="common_selector" value="68">PITHORO</option>
+                
+                  <option class="common_selector" value="13">QASIMABAD</option>
+                
+                  <option class="common_selector" value="79">QAZI AHMED</option>
+                
+                  <option class="common_selector" value="48">QUABO SAEED KHAN</option>
+                
+                  <option class="common_selector" value="139">RATO DERO</option>
+                
+                  <option class="common_selector" value="95">ROHRI</option>
+                
+                  <option class="common_selector" value="3">S. FAZIL RAHU</option>
+                
+                  <option class="common_selector" value="126">SADDAR</option>
+                
+                  <option class="common_selector" value="21">SAEEDABAD</option>
+                
+                  <option class="common_selector" value="77">SAKRAND</option>
+                
+                  <option class="common_selector" value="97">SALEHPAT</option>
+                
+                  <option class="common_selector" value="69">SAMARO</option>
+                
+                  <option class="common_selector" value="140">SANGHAR</option>
+                
+                  <option class="common_selector" value="17">SEHWAN SHARIF</option>
+                
+                  <option class="common_selector" value="25">SHAH BANDAR</option>
+                
+                  <option class="common_selector" value="111">SHAH FAISAL COLONY</option>
+                
+                  <option class="common_selector" value="119">SHAH MUREED </option>
+                
+                  <option class="common_selector" value="45">SHAHDADKOT</option>
+                
+                  <option class="common_selector" value="143">SHAHDADPUR</option>
+                
+                  <option class="common_selector" value="49">SHIKARPUR</option>
+                
+                  <option class="common_selector" value="46">SIJAWAL JUNEJO</option>
+                
+                  <option class="common_selector" value="134">SINDH INDUSTRIAL TRADING ESTATE</option>
+                
+                  <option class="common_selector" value="55">SINDHRI</option>
+                
+                  <option class="common_selector" value="144">SINJHORO</option>
+                
+                  <option class="common_selector" value="91">SOBHO DERO</option>
+                
+                  <option class="common_selector" value="26">SUJAWAL</option>
+                
+                  <option class="common_selector" value="93">SUKKUR CITY</option>
+                
+                  <option class="common_selector" value="27">T.ALLAHYAR</option>
+                
+                  <option class="common_selector" value="2">TALHAR</option>
+                
+                  <option class="common_selector" value="41">TAMGWANI</option>
+                
+                  <option class="common_selector" value="145">TANDO ADAM</option>
+                
+                  <option class="common_selector" value="5">TANDO BAGO</option>
+                
+                  <option class="common_selector" value="32">TANDO GHULAM HYDER</option>
+                
+                  <option class="common_selector" value="30">TANDO MUHAMMAD KHAN</option>
+                
+                  <option class="common_selector" value="18">THANO BULA KHAN</option>
+                
+                  <option class="common_selector" value="87">THARI MIRWAH</option>
+                
+                  <option class="common_selector" value="34">THATTA</option>
+                
+                  <option class="common_selector" value="37">THULL</option>
+                
+                  <option class="common_selector" value="81">UBAURO</option>
+                
+                  <option class="common_selector" value="66">UMERKOT</option>
+                
+                  <option class="common_selector" value="70">UTHMAN KOT</option>
+                
+                  <option class="common_selector" value="43">WARAH</option>
+                          </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="region">Select Gender:</label>
+                    <select class="form-control" id="gender" name="gender">
+            <option value="all">All</option>
+            
+                  <option class="common_selector" value="1">BOYS COLLEGE</option>
+                
+                  <option class="common_selector" value="2">GIRLS COLLEGE</option>
+                
+                  <option class="common_selector" value="3">BOYS & GIRLS COLLEGE</option>
+                          </select>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <input type="text" class="form-control" id="search" placeholder="Search...">
+                </div>
+            </div>
+        <!----      <div class="found"></div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>DDO Code</th>
+                            <th>Colleges Name</th>
+                            <th>Gender</th>
+                            <th>Shift</th>
+                            <th>Taluka / Town</th>
+                            <th>District</th>
+                            <th>Region</th>
+                            <th>Enrollment</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="collegesTable" class="filter_data">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>--->
+
+
+
+    <!------Team Members------->
+    <section id="team">
+        <div class="container">
+            <h1 class="mb-5">Visionary Leaders</h1>
+            <div class="row">
+                <div class="col-md-4 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="./img/syed sardar ali shah.jpeg" class="img-responsive">
+                        <ul>
+                            <a href="#">
+                                <li><i class="fa fa-facebook"></i></li>
+                            </a>
+                            <a href="#">
+                                <li><i class="fa fa-twitter"></i></li>
+                            </a>
+                            <a href="#">
+                                <li><i class="fa fa-linkedin"></i></li>
+                            </a>
+                        </ul>
+                    </div>
+                    <h3>Syed Sardar Ali Shah</h3>
+                    <p>Our Honorable Minister of Education</p>
+                </div>
+                <div class="col-md-4 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="./img/asif iqram.jpeg" class="img-responsive">
+                        <ul>
+                            <a href="#">
+                                <li><i class="fa fa-facebook"></i></li>
+                            </a>
+                            <a href="#">
+                                <li><i class="fa fa-twitter"></i></li>
+                            </a>
+                            <a href="#">
+                                <li><i class="fa fa-linkedin"></i></li>
+                            </a>
+                        </ul>
+                    </div>
+                    <h3>Asif Ikram</h3>
+                    <p>Secratary College Education Department</p>
+                </div>
+                <div class="col-md-4 profile-pic text-center">
+                    <div class="img-box">
+                        <img src="./img/prof dr nawid rab siddique.jpeg" class="img-responsive">
+                        <ul>
+                            <a href="#">
+                                <li><i class="fa fa-facebook"></i></li>
+                            </a>
+                            <a href="#">
+                                <li><i class="fa fa-twitter"></i></li>
+                            </a>
+                            <a href="#">
+                                <li><i class="fa fa-linkedin"></i></li>
+                            </a>
+                        </ul>
+                    </div>
+                    <h3>Prof.Dr Navaid Rab Siddique</h3>
+                    <p>Director General Colleges Sindh</p>
+                </div>
+            </div>
+        
+           
+
+
+
+            <br>
+            <br><br>
+          <h1 class="mb-5">Our Honorable Teachers</h1>
+            
+        <div class="row">
+            <div class="col-md-4 profile-pic text-center">
+                <div class="img-box">
+                    <img src="./img/Principal.jpeg" class="img-responsive">
+                    <ul>
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-linkedin"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <h3>Our Principal</h3>
+                <p>Our Honorable College Principal</p>
+            </div>
+            <div class="col-md-4 profile-pic text-center">
+                <div class="img-box">
+                    <img src="./img/Miss sadia.jpeg" class="img-responsive">
+                    <ul>
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-linkedin"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <h3>Prof.Sadia Mahvesh</h3>
+                <p>Our Honorable College  HOD of Poli-Sci,Civics</p>
+            </div>
+            <div class="col-md-4 profile-pic text-center">
+                <div class="img-box">
+                    <img src="./img/miss naheed.jpeg" class="img-responsive">
+                    <ul>
+                        <a href="#">
+                            <li><i class="fa fa-facebook"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-twitter"></i></li>
+                        </a>
+                        <a href="#">
+                            <li><i class="fa fa-linkedin"></i></li>
+                        </a>
+                    </ul>
+                </div>
+                <h3>Prof.Naheed Baloch</h3>
+                <p>Our Honorable College  HOD of Urdu</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-md-4 profile-pic text-center">
+        <div class="img-box">
+            <img src="./img/miss Robina.jpeg" class="img-responsive">
+            <ul>
+                <a href="#">
+                    <li><i class="fa fa-facebook"></i></li>
+                </a>
+                <a href="#">
+                    <li><i class="fa fa-twitter"></i></li>
+                </a>
+                <a href="#">
+                    <li><i class="fa fa-linkedin"></i></li>
+                </a>
+            </ul>
+        </div>
+        <h3>Prof.Robina Amjad</h3>
+        <p>Our Honorable College HOD of Chemistry</p>
+    </div>
+    <div class="col-md-4 profile-pic text-center">
+        <div class="img-box">
+            <img src="./img/miss zohranoor.jpeg" class="img-responsive">
+            <ul>
+                <a href="#">
+                    <li><i class="fa fa-facebook"></i></li>
+                </a>
+                <a href="#">
+                    <li><i class="fa fa-twitter"></i></li>
+                </a>
+                <a href="#">
+                    <li><i class="fa fa-linkedin"></i></li>
+                </a>
+            </ul>
+        </div>
+        <h3>Prof.Zohra Noor</h3>
+        <p>Our Honorable College  HOD of Chemistry</p>
+    </div>
+    <div class="col-md-4 profile-pic text-center">
+        <div class="img-box">
+            <img src="./img/miss afsheen.jpeg" class="img-responsive">
+            <ul>
+                <a href="#">
+                    <li><i class="fa fa-facebook"></i></li>
+                </a>
+                <a href="#">
+                    <li><i class="fa fa-twitter"></i></li>
+                </a>
+                <a href="#">
+                    <li><i class="fa fa-linkedin"></i></li>
+                </a>
+            </ul>
+        </div>
+        <h3>Prof.Afsheen Fatima</h3>
+        <p>Our Honorable College HOD of Zoology</p>
+    </div>
+</div>
+        
+    
+    <div class="row">
+        <div class="col-md-4 profile-pic text-center">
+            <div class="img-box">
+                <img src="./img/sir masood.jpeg" class="img-responsive">
+                <ul>
+                    <a href="#">
+                        <li><i class="fa fa-facebook"></i></li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fa fa-twitter"></i></li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fa fa-linkedin"></i></li>
+                    </a>
+                </ul>
+            </div>
+            <h3>Prof.Masood</h3>
+            <p>Our Honorable College HOD of Physice</p>
+        </div>
+        <div class="col-md-4 profile-pic text-center">
+            <div class="img-box">
+                <img src="./img/sir junaid.jpeg" class="img-responsive">
+                <ul>
+                    <a href="#">
+                        <li><i class="fa fa-facebook"></i></li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fa fa-twitter"></i></li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fa fa-linkedin"></i></li>
+                    </a>
+                </ul>
+            </div>
+            <h3>Prof.Junaid Razzak</h3>
+            <p>Our Honorable College HOD of Mathematics</p>
+        </div>
+        <div class="col-md-4 profile-pic text-center">
+            <div class="img-box">
+                <img src="./img/mis bilqees.jpeg" class="img-responsive">
+                <ul>
+                    <a href="#">
+                        <li><i class="fa fa-facebook"></i></li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fa fa-twitter"></i></li>
+                    </a>
+                    <a href="#">
+                        <li><i class="fa fa-linkedin"></i></li>
+                    </a>
+                </ul>
+            </div>
+            <h3>Prof.Dr Bilqees Umrani</h3>
+            <p>Our Honorable College HOD of Urdu</p>
+        </div>
+    </div>
+</div>          
+ 
+    </section>
+
+
+    <!------You tube Videos ------->
+    <section class="mt-5" id="videos">
+        <div class="container">
+            <h1 class="mb-5">Prodigious of Government Degree Girls Colleges </h1>
+            <div style="margin-bottom: 5%;" class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/MAWqJG3ZHPg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/S0AQRlbXKoc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 5%;" class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/6fWJ1iS6nBI?si=e4FJgD0luBfGYXUl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3EKhy3QZY7k?si=7R2E9XXzVjQYyilI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 5%; display: flex; align-items: center; justify-content: center;">
+                <a style="text-decoration: none; " target="_blank" href="https://www.youtube.com/@RDCK-s4q" class="btn btn-green">View More</a>
+            </div>
+        </div>
+    </section>
+
+    <div id='map' style='width: 100%; height: 75vh;'></div>
+
+    <!-----------Get in Touch-------->
+    <section class="mt-5" id="contact">
+        <div class="container">
+            <h1 class="mb-5">Get In Touch</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" placeholder="Phone no.">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email id">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-green">SEND MESSAGE</button>
+                    </form>
+                </div>
+                <div class="col-md-6 contact-info">
+                    <h2>Contact Info</h2>
+                    <div class="follow"><b>Address:</b><i class="fa fa-map-marker"></i>Government Degree Girls College Baldia Town, Karachi</div>
+                    <div class="follow"><b>Phone:</b><i class="fa fa-phone"></i>+92 308 7418888</div>
+                    <div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i>ggdc.baldiatown@gmail.com</div>
+                    <div class="follow"><label><b>Follow us:</b></label>
+                        <a href="https://www.facebook.com/profile.php?id=100057349816138"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const popup = document.querySelector('.my-popup');
+        const x = document.querySelector('.my-popup-content h1');
+
+        window.addEventListener('load', () => {
+            popup.classList.add('my-showPopup');
+            popup.childNodes[1].classList.add('my-showPopup');
+        })
+        x.addEventListener('click', () => {
+            popup.classList.remove('my-showPopup');
+            popup.childNodes[1].classList.remove('my-showPopup');
+        })
+    </script>
+
+
+    <!-----------Footer------->
+    <section id="footer">
+        <div class="container text-center">
+            <p>Powered by <a href="https://github.com/hafsarana13"  target="_blank"> Hafsa Rana</a></p>
+        </div>
+    </section>
+    <!------Footer End------>
+
+    <script>
+        var locations = [
+            ["GOVERNMENT ISLAMIA DEGREE COLLEGE BADIN", "24.8610816", "67.026944"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE BADIN", "24.7557729", "68.4213098"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE MATLI", "25.0525772", "68.647693"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE MATLI", "25.4599589", "68.7035622"],
+            ["GOVERNMENT PAKISTAN COLLEGE SAEEDPUR", "24.9086972", "68.8591619"],
+            ["GOVERNMENT MIR GHULAM MUHAMMAD TALPUR DEGREE COLLEGE TANDO BAGO", "24.7761864", "68.9599667"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE DADU", "26.729004970075717", "67.78333352796277"],
+            ["GOVERNMENT GIRLS COLLEGE DADU", "26.7338231", "67.7867388"],
+            ["GOVERNMENT COLLEGE K N SHAH", "27.5570498", "68.2027616"],
+            ["GOVERNMENT BOYS COLLEGE MEHAR", "27.1737744", "67.811337"],
+            ["GOVERNMENT BOYS COLLEGE JOHI", "26.7325728", "67.7698989"],
+            ["GOVERNMENT GIRLS INTERMEDIATE  COLLEGE K N SHAH", "27.0822929", "67.7323054"],
+            ["GOVT  DEGREE COLLEGE WAHI PANDI", "26.6617756", "67.3736168"],
+            ["GOVT DEGREE COLLEGE QAZI ARIF DADU", "27.2213915", "67.7796552"],
+            ["MOLVI ABDUL GHAFOOR SITAI GOVT DEGREE COLLEGE SITA", "27.0430866", "67.8545962"],
+            ["GOVERNMENT GIRLS (ZUBEDA)  COLLEGE HYDERABAD", "25.4088439", "68.3652918"],
+            ["GOVERNMENT GIRLS COLLEGE QASIMABAD HYDERABAD", "25.4278921", "68.3458634"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE LATIFABAD NO.8", "24.8938496", "67.0826496"],
+            ["GOVERNMENT SL GIRLS COLLEGE LATIFABAD NO 6", "25.3306887", "68.3669748"],
+            ["GOVERNMENT K.B.M.S GIRLS COLLEGE HYDERABAD", "25.3982147", "68.3733582"],
+            ["GOVERNMENT M.B & G.F GIRLS COLLEGE HYDERABAD", "25.3948619", "68.3670681"],
+            ["GOVERNMENT DR. I.H ZUBAIRI (H.) GIRLS COLLEGE HYDERABAD", "25.393551", "68.366615"],
+            ["GOVERNMENT NAZARETH GIRLS DEGREE COLLEGE HYDERABAD", "25.3945246", "68.3661316"],
+            ["GOVERNMENT S.S ARTS & COMMERCE COLLEGE HYDERABAD (EVENING)", "25.3951965", "68.3663992"],
+            ["GOVERNMENT SINDH COLLEGE OF COMM HYDERABAD", "25.3919246", "68.3758809"],
+            ["GOVT: S. S. COMMERCE COLLEGE HIRABAD HYDERBAD", "25.4053275", "68.3682782"],
+            ["GOVERNMENT CITY COLLEGE HYDERABAD", "25.3919314", "68.3761419"],
+            ["GOVERNMENT MUSLIM SCIENCE DEGREE COLLEGE HYDERABAD", "25.3853696", "68.370432"],
+            ["GOVERNMENT COLLEGE KALI MORI HYDERABAD", "25.4076832", "68.3788682"],
+            ["GOVERNMENT COLLEGE PARETABAD HYDERABAD", "25.3820928", "68.3442176"],
+            ["GOVERNMENT DEGREE COLLEGE & POST GRADUATE CENTER,LATIFABAD,NO.11.", "24.8741888", "67.0629888"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE QASIMABAD", "25.410325", "68.3401483"],
+            ["GOVERNMENT GHAZALI COLLEGE & POST GRADUATE CENTER", "25.359447499999998", "68.35613620000001"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE (KOHSAR) LATIFABAD", "25.3386898", "68.3639244"],
+            ["GOVERNMENT DEGREE COLLEGE TANDO JAM", "25.4347237", "68.5299669"],
+            ["GOVT KHURSHEED BEGUM GIRLS DEGREE COLLEGE HYDERABAD", "25.3954569", "68.3810277"],
+            ["ALI BABA GOVERNMENT BOYS DEGREE COLLEGE KOTRI", "24.887296", "67.0564352"],
+            ["GOVERNMENT GIRLS COLLEGE KOTRI", "25.3897427", "68.2942771"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE SEHWAN SHARIF", "24.887296", "67.0564352"],
+            ["GOVT GIRLS DEGREE COLLEGE BHAN SAEEDABAD", "26.5495374", "67.7200572"],
+            ["GOVT BOYS DEGREE COLLEGE BHAN SAEEDABAD", "26.5544103", "67.7178218"],
+            ["GOVT GIRLS DEGREE COLLEGE SEHWAN SHARIF", "24.887296", "67.0564352"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE MATIARI", "25.3853696", "68.3638784"],
+            ["GOVERNMENT DEGREE BOYS COLLEGE HALA", "25.8156035", "68.4283898"],
+            ["GOVERNMENT GIRLS COLLEGE HALA", "25.8168185", "68.4168297"],
+            ["GOVERNMENT SWONENTAL COLLEGE MANSOORA MITIARI", "25.9834833", "68.3737831"],
+            ["Makhdoom Muhammad Zaman Talibul Moula  Government Boys Degree College New Saeedabad", "25.9876454", "68.3646696"],
+            ["GOVERNMENT INTERMEDIATE  COLLEGE BHITSHAH", "25.7995833", "68.49056"],
+            ["GOVERNMENT INTERMEDIATE COLLEGE NASARPUR", "25.523461", "68.6195799"],
+            ["SARDAR MOHD ALI SHAH GOVT GIRLS COLLEGE MATIARI", "25.5951295", "68.4440403"],
+            ["JHOLEY LAL GOVT. DEGREE COLLEGE ODERO LAL STATION", "25.6422354", "68.5882478"],
+            ["GOVERNMENT BOYS COLLEGE SUJAWAL", "24.6059778", "68.0764595"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE SUJAWAL", "25.4071491", "68.36556"],
+            ["GOVERNMENT SM COLLEGE TANDO ALLAHYAR", "24.8741888", "67.0695424"],
+            ["GOVERNMENT DEGREE COLLEGE M SADIQ MEMON TANDO ALLAH YAR", "24.9430016", "67.076096"],
+            ["MIR GHULAM ALI KHAN TALPUR, GOVERNMENT BOYS DEGREE COLLEGE TANDO MUHAMMAD KHAN", "25.3925625", "68.3219916"],
+            ["GOVERNMENT GIRLS COLLEGE TANDO MOHD KHAN", "25.1224268", "68.5362977"],
+            ["GOVT DEGREE COLLEGE BULRI SHAH KARIM", "25.3767014", "68.3998455"],
+            ["GOVERNMENT GIRLS COLLEGE THATTA", "24.7458511", "67.923859"],
+            ["GOVERNMENT BOYS COLLEGE THATTA", "24.8905728", "67.076096"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE GHORABARI", "25.2400936", "67.940626"],
+            ["GOVT. COLLEGE OF EDUCATION, BLOCK-15, F.B. AREA, KARACHI", "24.9326122", "67.0800941"],
+            ["GOVT. DEHLI INTER SCIENCE COLLEGE, HUSSAINABAD, KARACHI", "24.9327065", "67.0583857"],
+            ["GOVERNMENT INTER SCIENCE &  COMMERCE COLLEGE FOR WOMEN F.B AREA KARACHI", "24.9359155", "67.0796927"],
+            ["GOVT. CITY COLLEGE NO.1, KARACHI", "24.922252991342155", "67.04761549282566"],
+            ["GOVT. CITY COLLEGE NO.2, KARACHI", "24.9226858", "67.0474946"],
+            ["GOVT. DEGREE COLLEGE FOR WOMEN BLOCK-19, ALNOOR BLOCK-19 KARACHI", "24.9475793", "67.0772719"],
+            ["APWA GOVT. COLLEGE FOR WOMEN, KARACHI", "24.9195297", "67.0505854"],
+            ["SHAHEED-E-MILLAT GOVT.DEGREE COLLEGE FOR WOMEN, AZIZABAD,KARACHI", "24.9333414", "67.0648784"],
+            ["GOVERNMENT COLLEGE FOR MEN, NAZIMABAD, KARACHI", "24.9064552", "67.034556"],
+            ["QUAID-E-MILLAT GOVT. COLLEGE (EVENING) KARACHI", "24.9223957", "67.1409505"],
+            ["GOVT. COLLEGE FOR WOMEN, NAZIMABAD, KARACHI", "24.9512411", "67.034556"],
+            ["GOVT. DEGREE SCIENCE COLLEGE, LIAQUTABAD, KARACHI", "24.900323", "67.0564713"],
+            ["GOVT. DEGREE GIRLS COLLEGE LIAQUTABAD (KMC PARK)", "24.9022731", "67.0466784"],
+            ["SIRAJUDULLAH GOVT. COLLEGE NO.1, KARACHI", "24.9085443", "67.0572156"],
+            ["SIRAJ- UD - DAULAH GOVT. COLLEGE NO.2, (EVENING), F. C. , AREA,  KARACHI", "25.0171866", "67.1186088"],
+            ["RIAZ GOVT. GIRLS COLLEGE, KARACHI.", "24.9079675", "67.049522"],
+            ["H.I OSMANIA GOVT. GIRLS COLLEGE, NAZIMABAD, KARACHI.", "24.8624621", "67.2013773"],
+            ["SIR SYED GOVT. COLLEGE FOR WOMEN, NAZIMABAD, KARACHI", "25.0153543", "67.1311703"],
+            ["GOVT. COLLEGE FOR WOMEN, 11-F NEW KARACHI, KARACHI", "24.8938496", "67.0826496"],
+            ["NISHTER GOVT. GIRLS COLLEGE 11-B NORTH KARACHI", "24.9776809", "67.0597584"],
+            ["GOVT. COLLEGE FOR WOMEN, 11-B NORTH KARACHI", "24.977495", "67.0583856"],
+            ["GOVT. DEGREE BOYS COLLEGE 7D-II NORTH KARACHI, KARACHI", "24.8938496", "67.0826496"],
+            ["GOVT. DEGREE BOYS COLLEGE 5-L NEW KARACHI, KARACHI", "24.9879316", "67.0667074"],
+            ["GOVT. DEGREE GIRLS COLLEGE 11-I NORTH KARACHI, KARACHI", "24.90368", "67.0695424"],
+            ["GOVT. JINNAH COLLEGE, NAZIMABAD, KARACHI.", "24.8512512", "67.108864"],
+            ["GOVT. PREMIER COLLEGE NO.1, KARACHI", "24.9358128", "67.0518525"],
+            ["GOVT. PREMIER COLLEGE NO.2, KARACHI", "24.8971264", "67.059712"],
+            ["GOVT. PREMIER COLLEGE FOR WOMEN, KARACHI", "25.0137598", "67.1306202"],
+            ["ABDULLAH GOVT. COLLEGE FOR WOMEN, KARACHI", "24.977494999999998", "67.0583856"],
+            ["Govt degree college for women block M North Nazimabad. Karachi ", "24.9438805", "67.0590794"],
+            ["PAKISTAN SHIPOWNERS GOVT. COLLEGE, KARACHI", "24.9466518", "67.0403979"],
+            ["GOVT. DEGREE BOYS COLLEGE BUFFER ZONE, KARACHI.", "24.920064", "67.1285248"],
+            ["GOVT. DEGREE GIRLS COLLEGE, BUFFER ZONE, KARACHI.", "24.9580359", "67.0667193"],
+            ["GOVT. DEGREE COLLEGE FOR WOMEN, BLOCK K NORTH NAZIMABAD.", "24.9551014", "67.0583857"],
+            ["SHAHEED FLYING OFFICER MARIUM MUKHTIAR GOVERNMENT GIRLS  DEGREE COLLEGE, NEAR APWA GGHSS LIAQUATABAD, KARACHI", "24.9034269", "67.0464125"],
+            ["GOVT. DEGREE BOYS COLLEGE, 11-A, NORTH KARACHI, KARACHI", "24.9266176", "67.09248"],
+            ["GOVT. NATIONAL COLLEGE NO.1, KARACHI", "24.8851688", "67.0619112"],
+            ["GOVT. NATIONAL COLLEGE NO.2, KARACHI", "24.8846473", "67.0599833"],
+            ["KHATOON-E-PAKISTAN GOVT. COLLEGE FOR WOMEN, KARACHI", "24.8938496", "67.0826496"],
+            ["GOVT. GIRLS COLLEGE, PIB COLONY, KARACHI", "24.8938687", "67.0512772"],
+            ["HRH AGHA KHAN GOVERNMENT GIRLS ARTS & COMMERCE DEGREE COLLEGE, PIB COLONY,  KARACHI", "24.892494", "67.050362"],
+            ["RLAK GOVT. COLLEGE OF HOME ECONOMICS, KARACHI", "24.8900741", "67.0762235"],
+            ["GOVT. DEGREE COLLEGE FOR BOYS & GIRLS BLOCK-07 GULSHAN-E-IQBAL KARACHI", "24.9265997", "67.1734239"],
+            ["GOVT. DEGREE BOYS & GIRLS COLLEGE, STADIUM ROAD, KARACHI", "24.8984839", "67.1060362"],
+            ["GOVT. COLLEGE OF PHYSICAL EDUCATION, KARACHI", "24.936709569274456", "67.13671468776909"],
+            ["GOVT. DEGREE GIRLS COLLEGE SHAIKH ZAID CENTRE, KARACHI", "24.9375995", "67.1330321"],
+            ["GOVT. DEGREE BOYS SCIENCE AND COMMERCE COLLEGE, GULISTAN-E-JOUHAR NO.1, KARACHI", "24.9442561", "67.1298787"],
+            ["GOVT. DEGREE BOYS COLLEGE, GULISTAN-E-JOUHAR NO.2, KARACHI", "24.9207", "67.0657"],
+            ["GOVT. DEGREE GIRLS COLLEGE BLOCK-13 GULISTAN-E-JOUHAR, KARACHI", "24.910285", "67.1337469"],
+            ["GOVT. DEGREE GIRLS COLLEGE, BLOCK-12 GULISTAN E JOUHAR SAFOORA GOTH, KARACHI", "24.916722", "67.1337718"],
+            ["GOVT. ISLAMIA SCIENCE COLLEGE, KARACHI", "24.9348906", "67.1353477"],
+            ["GOVT. ISLAMIA ARTS & COMMERCE COLLEGE NO.1, KARACHI", "24.871799499999998", "67.0599284"],
+            ["GOVT. ISLAMIA ARTS & COMMERCE COLLEGE NO.2, KARACHI", "24.920064", "67.0695424"],
+            ["GOVT. ISLAMIA COLLEGE FOR WOMEN, LINES AREA, KARACHI.", "24.8641393", "67.0353596"],
+            ["GOVT. DEGREE GIRLS COLLEGE, LINES AREA, SADDAR, KARACHI.", "24.8616816", "67.0365573"],
+            ["DUKHTAR-E-MASHRIQ GOVT. GIRLS  DEGREE COLLEGE, KARACHI", "24.9288644", "67.0918507"],
+            ["PECHS EDUCATION FOUNDATION GOVT. DEGREE SCIENCE COLLEGE, KARACHI.", "24.8821038", "67.0575061"],
+            ["BAMM PECHS GOVT. COLLEGE FOR WOMEN, KARACHI", "24.8649191", "67.0600495"],
+            ["ADAMJEE GOVT. SCIENCE COLLEGE, KARACHI", "24.882128", "67.036729"],
+            ["ST. LAWRENCES GOVT. COLLEGE FOR WOMEN, KARACHI", "24.8770312", "67.0440388"],
+            ["GOVT. DEGREE GIRLS COLLEGE MAHMOODABAD, GREEN BELT, KARACHI", "24.8544732", "67.0715251"],
+            ["GOVT. DEGREE BOYS COLLEGE, GULZAR-E-HIJRI, KARACHI", "24.9457518", "67.1033262"],
+            ["JAN MUHAMMAD BROHI GOVT. DEGREE COLLEGE, GULSHAN-E-MAYMAR, KARACHI", "24.860734299999997", "67.0011364"],
+            ["SHAH NAWAZ SHAR GOTH GOVT. DEGREE GIRLS COLLEGE, GULSHAN-E-IQBAL, KARACHI", "24.9571752", "67.1389364"],
+            ["GOVT. DEGREE GIRLS COLLEGE, GULZAR E HIJRI, SCHEME-33, GULSHAN-E-IQBAL, KARACHI?", "24.892699399999998", "67.078539"],
+            ["GOVT. DEGREE BOYS COLLEGE QUAIDABAD,@ Jogi Morr, National Highway , KARACHI", "24.887296", "67.0629888"],
+            ["GOVT. COLLEGE FOR WOMEN, KORANGI NO.4, KARACHI.", "24.8264992", "67.1562886"],
+            ["GOVT. COLLEGE FOR WOMEN, KORANGI NO.6, KARACHI", "24.8210925", "67.1727767"],
+            ["GOVT. DEGREE BOYS COLLEGE, KORANGI 2  KARACHI", "24.9135104", "67.0826496"],
+            ["GOVT. DEGREE GIRLS COLLEGE KORANGI 2-1\/2  KARACHI", "24.8151803", "67.1490444"],
+            ["GOVT. DEGREE SCIENCE & COMMERCE COLLEGE, LANDHI\/KORANGI NO.6, (Morning) KARACHI", "24.828313599999998", "67.1678464"],
+            ["GOVT. DEGREE ARTS & COMM. COLLEGE LANDHI (EVENING) KARACHI", "24.8774656", "67.0629888"],
+            ["GOVT. SUPERIOR SCIENCE COLLEGE, KARACHI", "24.884448", "67.1482417"],
+            ["GOVT. SUPERIOR COMMERCE COLLEGE (EVENING) KARACHI", "24.8845313", "67.148044"],
+            ["JAMIA MILLIA GOVT. DEGREE COLLEGE NO.1, KARACHI", "24.8847062", "67.1775438"],
+            ["JAMIA MILLIA GOVT. DEGREE COLLEGE NO.2, KARACHI", "24.8847062", "67.1775438"],
+            ["JAMIA MILLIA GOVT. COLLEGE OF EDUCATION, KARACHI", "24.8716799", "67.180879"],
+            ["KHURSHEED GOVT. GIRLS COLLEGE, SHAH FAISAL COLONY, KARACHI", "24.8828607", "67.1483355"],
+            ["ALLAMA IQBAL GOVT. GIRLS COLLEGE, KARACHI", "24.8805662", "67.14975369999999"],
+            ["GOVT. DEGREE COLLEGE, SHAH FAISAL COLONY NO.5, KARACHI", "24.9217578", "67.1388942"],
+            ["GOVT. INTER BOYS COLLEGE 36-B LANDHI, KARACHI", "24.8409057", "67.1825383"],
+            ["GOVERNMENT COLLEGE FOR INFORMATION TECHNOLOGY @ GURU NAGAR HYDERABAD", "24.9207", "67.0657"],
+            ["GOVT. COLLEGE FOR WOMEN, SAUDABAD, KARACHI", "24.8576389", "67.0184482"],
+            ["GOVT. DEGREE GIRLS COLLEGE C-1 AREA, MALIR, KARACHI", "24.8951278", "67.1911246"],
+            ["ALLAMA IQBAL GOVT. SCIENCE DEGREE COLLEGE, KARACHI?", "24.9036837", "67.1863368"],
+            ["ALLAMA IQBAL GOVT. COLLEGE (EVENING) KARACHI", "24.9063166", "67.1866558"],
+            ["LIAQUAT GOVT. DEGREE BOYS COLLEGE NO.2, (EVENING) KARACHI", "24.89287702833747", "67.18912578274313"],
+            ["LIAQUAT GOVT. GIRLS COLLEGE, KARACHI", "24.9069568", "67.043328"],
+            ["GOVT. DEGREE GIRLS COLLEGE, INDUSTRIAL AREA, KARACHI", "24.8734738", "67.3616281"],
+            ["BIBI ASIFA GOVERNMENT GIRLS COLLEGE Muzaffarabad LANDHI ,Malir Karachi ", "24.8838118", "67.170858"],
+            ["GOVERNMENT GIRLS COLLEGE, SINGER CHOWRANGI,SHARAFI GOTH, KARACHI", "24.8635996", "67.1478058"],
+            ["GOVERNMENT DEGREE BOYS COLLEGE, MUZAFFARABAD, LANDHI, KARACHI", null, null],
+            ["SHAHEED MOHTARMA BANZAIR GOVT. DEGREE GIRLS COLLEGE, MANZOOR COLONY", "24.8445967", "67.072988"],
+            ["GOVT. DEGREE BOYS & GIRLS COLLEGE, MURAD MEMON GOTH ,MALIR, KARACHI", "24.9169431", "67.2501809"],
+            ["GOVT. DEGREE COLLEGE, RAZZAKABAD, KARACHI", "24.8593032", "67.2929533"],
+            ["GOVT. DEGREE SCIENCE COLLEGE (MORNING), MALIR, KARACHI ", "24.8741888", "67.0466048"],
+            ["GOVT. DEGREE ARTS & COMMERCE COLLEGE, MALIR (EVENING) KARACHI", "24.860734299999997", "67.0011364"],
+            ["GOVT. DEGREE BOYS COLLEGE, KONKAR VILLAGE, KARACHI", "25.0660056", "67.2726427"],
+            ["GOVT. DEGREE COLLEGE FOR WOMEN, IBRAHIM HYDERI, KARACHI", "24.8520069", "67.0486168"],
+            ["GOVT. DEGREE BOYS COLLEGE, IBRAHIM HYDRI, KARACHI", "24.8179218", "67.1085311"],
+            ["GOVT. DEGREE COLLEGE MALIR CANTT, KARACHI", "24.8131959", "67.111937"],
+            ["GOVERNMENT DEGREE COLLEGE KAMAL KHAN JOKHIO, GADAP TOWN, KARACHI", "25.0561412", "67.3214729"],
+            ["GOVERNENT GIRLS DEGREE COLLEGE, CATTLE COLONY, UC NO.3, BIN QASIM TOWN, KARACHI", null, null],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE, GULSHAN-E-HADEED, KARACHI", "24.9811", "67.0725"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE DARSANO CHANNO MALIR KARACHI", "24.9426753", "67.3385644"],
+            ["AISHA BAWANY GOVT. COLLEGE NO.1, KARACHI", "24.8571545", "67.0466452"],
+            ["AISHA BAWANY GOVT. COLLEGE NO.2, KARACHI", "24.8572864", "67.0541116"],
+            ["S.M. GOVT. ARTS & COMMERCE COLLEGE NO.1, KARACHI", "24.852513", "67.015724"],
+            ["S.M. GOVT. ARTS & COMMERCE COLLEGE NO.2, (EVENING) KARACHI", "24.8671391", "67.0487584"],
+            ["S.M. GOVT. SCIENCE COLLEGE, KARACHI", "24.816869", "67.0353704"],
+            ["GOVT. COLLEGE OF COMMERCE & ECONOMICS NO.1, KARACHI", "24.887296", "67.0564352"],
+            ["GOVT. COLLEGE OF COMMERCE & ECONOMICS NO.2, KARACHI", "24.8471876", "67.0228407"],
+            ["S.M.B. FATIMA JINNAH GOVT. GIRLS COLLEGE, KARACHI", "24.8758517", "67.0197918"],
+            ["D.J. SINDH GOVT. SCIENCE COLLEGE, KARACHI", "24.8434666", "67.0736851"],
+            ["GOVT. KARACHI COLLEGE FOR WOMEN, CHAND BIBI ROAD, KARACHI", "24.8629518", "67.0076733"],
+            ["GOVT. DEGREE SCIENCE & COMMERCE COLLEGE, LYARI, KARACHI", "24.9099603", "67.0722259"],
+            ["GOVT. INTER GIRLS COLLEGE, MOOSA LANE, LYARI, KARACHI", "24.859625", "66.9948864"],
+            ["HAJI ABDULLAH HAROON GOVT. COLLEGE NO.1, KARACHI", "24.857125399999997", "66.9915195"],
+            ["HAJI ABDULLAH HAROON GOVT. COLLEGE NO.2, KARACHI", "24.856486", "66.9920519"],
+            ["GOVT. DEGREE BOYS COLLEGE KMC STORE, NISHTER ROAD, KARACHI", "24.86446", "67.0115"],
+            ["GOVT. DEGREE GIRLS COLLEGE, PUNJABI CLUB, LIGHT HOUSE, KARACHI", "24.8749558", "67.0468981"],
+            ["ROUNAQ-I-ISLAM GOVT. COLLEGE FOR WOMEN, KARACHI", "24.854744200000003", "66.9971772"],
+            ["GOVT. DEGREE COLLEGE FOR WOMEN, GIZRI, CLIFTON, KARACHI", "24.8156282", "67.0398932"],
+            ["GOVT. COLLEGE FOR WOMEN, SHAHRAH-E-LIAQUAT, KARACHI", "24.9186853", "67.1014806"],
+            ["NABI BAGH Z.M. GOVT. SCIENCE COLLEGE, KARACHI", "24.861171", "67.0216989"],
+            ["NUSRAT BHUTTO GOVT. DEGREE BOYS COLLEGE, LYARI, KARACHI", "24.8722541", "66.9857031"],
+            ["SHAHEED BENAZIR BHUTTO GOVT. DEGREE GIRLS COLLEGE, LYARI, KARACHI", "24.864696", "67.003795"],
+            ["GOVT. GIRLS SCIENCE AND ARTS DEGREE COLLEGE, BATH ISLAND (HIJRAT COLONY), KARACHI", "24.839744", "67.0235924"],
+            ["GOVT. DEGREE BOYS COLLEGE, SHAMSPEER, KARACHI", "24.8938496", "67.0826496"],
+            ["GOVT. DEGREE BOYS COLLEGE, JUNGLE SHAH, KEMARI, KARACHI", "24.8247216", "66.9806232"],
+            ["GOVT. DEGREE SCIENCE & COMMERCE COLLEGE, ORANGI TOWN, KARACHI", "24.93502", "67.0173953"],
+            ["GOVT. DEGREE GIRLS COLLEGE, QASBA COLONY, KARACHI", "24.8971264", "67.0662656"],
+            ["GOVT. DEGREE GIRLS COLLEGE 11\/C ORANGI TOWN, KARACHI", "24.9555998", "66.9845506"],
+            ["SHAHEED ZULFIQAR ALI BHUTTO GDB COLLEGE BEHAR COLONY 16-E, , KARACHI", "24.9713796", "66.9961074"],
+            ["GOVT. DEGREE GIRLS COLLEGE 7\/C ORANGI TOWN, KARACHI", "25.0018136", "67.051858"],
+            ["GOVT. INTER GIRLS SC. ARTS & COMMERCE COLLEGE 15\/C ORANGI TOWN, KARACHI", "24.9485115", "66.99969089999999"],
+            ["GOVT. DEGREE GIRLS COLLEGE SECTOR 11 1\/2 ORANGI TOWN, KARACHI", "24.9599547", "66.9814885"],
+            ["GOVT. DEGREE BOYS COLLEGE, ASIFABAD, KARACHI", "24.9102336", "67.0498816"],
+            ["GOVT. DEGREE GIRLS COLLEGE, PAK COLONY ASIFABAD,WEST, KARACHI", "24.8989446", "67.0129548"],
+            ["GOVT. DEGREE BOYS COLLEGE, MANGOPIR, KARACHI", "24.9950307", "67.0380814"],
+            ["GOVT. DEGREE BOYS COLLEGE, SURJANI TOWN, KARACHI", "25.0148218", "67.0738264"],
+            ["GOVT. DEGREE GIRLS COLLEGE, SURJANI TOWN, KARACHI", "25.0377079", "67.0661691"],
+            ["GOVT. DEGREE BOYS COLLEGE, SEC 4\/E BALDIA TOWN, KARACHI", "24.9283222", "66.9654793"],
+            ["GOVT. DEGREE GIRLS COLLEGE, BALDIA TOWN, KARACHI", "24.923365", "66.965107"],
+            ["GOVT. DEGREE GIRLS COLLEGE, METROVILL SITE, KARACHI", "24.9157566", "66.9959037"],
+            ["GOVT. DEGREE BOYS COLLEGE METROVILL SITE, KARACHI", "24.9135104", "67.0826496"],
+            ["GOVERNMENT  DEGREE BOYS COLLEGE, SECTOR 9-E, BALDIA TOWN, KARACHI", "24.9369384", "66.953938"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE, BLOCK-N, NORTH NAZIMABAD KARACHI", "24.949578", "67.0494031"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE JACOBABAD", "24.9004032", "67.0892032"],
+            ["GOVERNMENT DEGREE COLLEGE GIRLS JACOBABAD", "28.2781093", "68.4449803"],
+            ["GOVERNMENT BOYS & GIRLS DEGREE COLLEGE THUL", "28.2354489", "68.7704574"],
+            ["SARDAR SOHRAB KHAN SARKI GOVT DEGREE COLLEGE MUBARAKPUR JACOBABAD", "28.2869944", "68.76874"],
+            ["GOVERNMENT BOYS & GIRLS DEGREE COLLEGE KANDH KOT", "28.2460579", "69.1892251"],
+            ["GOVERNMENT DEGREE COLLEGE KARAMPUR", "28.0913721", "68.9407327"],
+            ["GOVT:DEGREE COLLEGE KASHMORE", "28.4320135", "69.5795632"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE LARKANO", "27.5477236", "68.2052477"],
+            ["GOVERNMENT ARTS \/ COMMERCE COLLEGE LARKANO", "27.5825616", "68.2204425"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE LARKANO", "27.5485565", "68.2127763"],
+            ["HAIDER BUX JATOI GOVERNMENT DEGREE COLLEGE DOKRI", "27.5456742", "68.2024175"],
+            ["GOVERNMENT BOYS COLLEGE RATO DERO", "27.7793155", "68.2864169"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE NAUDERO", "24.887296", "67.0629888"],
+            ["SMBB GOVERNMENT GRILS COLLEGE NAU DERO", "27.5570498", "68.2027616"],
+            ["GOVERNMENT GRILS COLLEGE BADEH LARKANO", "27.3291421", "68.034523"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE RATODERO", "27.5688585", "68.1907827"],
+            ["BEGUM NUSRAT BHUTTO GOVT DEGREE GIRLS COLLEGE LARKANO", "27.5472643", "68.2001148"],
+            ["SMBB GOVT. COLLEGE OF EDUCATION LARKANO", "27.5538912", "68.2036931"],
+            ["GOVERNMENT DEGREE BOYS COLLEGE SHAHDAD KOT", "27.8402378", "67.9111907"],
+            ["GOVERNMENT GIRLS COLLEGE SHAHDAD KOT", "27.8487684", "67.9065837"],
+            ["GOVERNMENT DEGREE COLLEGE NASEERABAD", "27.3850014", "67.9190152"],
+            ["SL GOVERNMENT BOYS DEGREE COLLEGE KAMBER", "27.5713918", "67.9976047"],
+            ["GOVERNMENT GIRLS COLLEGE KAMBER", "25.3959687", "68.357776"],
+            ["GOVERNMENT COMPOSITE DEGREE COLLEGE MERO KHAN", "27.7637722", "68.0930238"],
+            ["C&S GOVERNMENT DEGREE BOYS COLLEGE SHIKARPUR", "27.9559728", "68.6399248"],
+            ["GOVERNMENT DEGREE GIRLS COLLEGE SHIKARPUR", "27.9521617", "68.638104"],
+            ["GOVERNMENT SHAH LATIF COLLEGE SHIKARPUR", "27.9506409", "68.651221"],
+            ["GOVERNMENT DEGREE COLLEGE MADEJI", "24.8938496", "67.0826496"],
+            ["SHAH ABDUL LATIF GOVERNMENT DEGREE COLLEGE MIRPUR KHAS", "25.530365", "69.0056691"],
+            ["GOVERNMENT MODEL COLLEGE MIRPURKHAS", "25.5283427", "69.0158344"],
+            ["IBN-E-RUSHD GIRLS COLLEGE MIRPURKHAS", "24.5999", "68.0878"],
+            ["MIR HAJI KHUDA BUX KHAN TALPUR GOVERNMENT BOYS DEGREE COLLEGE TANDO JAN MUHAMMAD", "25.0730896", "69.2085745"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE TANDO JAN MUHAMMAD", "25.0722793", "69.2167914"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE JHUDDO", "24.9667728", "69.2938995"],
+            ["GOVERNMENT DEGREE COLLEGE KOT GHULAM MUHAMMAD", "25.3886464", "68.3638784"],
+            ["GOVT. BOYS DEGREE COLLEGE SINDHRI", "25.6550647", "69.1072679"],
+            ["GOVT. BOYS DEGREE COLLEGE JHUDDO", "24.9717486", "69.296507"],
+            ["SADIQUE FAQEER GOVERNMENT BOYS DEGREE COLLEGE MITHI", "24.7371159", "69.8001645"],
+            ["GOVERNMENT GIRLS COLLEGE MITHI", "24.743592", "69.7916973"],
+            ["GOVERNMENT DEGREE COLLEGE DIPLO", "25.3919232", "68.3638784"],
+            ["GHULAM MUHAMMAD RAHU GOVT DEGREE COLLEGE KALOI", "31.5031552", "74.3276544"],
+            ["GOVT DEGREE COLLEGE KHEMEJO PAR", "25.6236058", "70.2607367"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE UMERKOT", "24.8607343", "67.0011364"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE UMERKOT", "25.3659831", "69.7344638"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE KUNRI", "25.1711962", "69.5732326"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE SAMARO", "25.283267", "69.3962568"],
+            ["GOVERNMENT DEGREE COLLEGE DHORO NARO", "25.5049375", "69.5691768"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE PITHORO", "25.5170088", "69.3821767"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE KUNRI", "25.2311913", "69.4834818"],
+            ["GOVERNMENT DEGREE COLLEGE NAUSHAHERO FEROZE", "25.894301799999997", "68.52471489999999"],
+            ["GOVERNMENT GHULAM RABBANI AGRODEGREE COLLEGE KANDIARO", "25.3959687", "68.357776"],
+            ["GOVERNMENT MEHRAN DEGREE COLLEGE MORO", "26.6737804", "68.0043415"],
+            ["GOVERNMENT GIRLS COLLEGE MORO", "26.6540826", "67.9985722"],
+            ["SYED NOOR SHAH GOVERNMENT DEGREE COLLEGE THARO SHAH", "26.9390704", "68.142146"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE NAUSHERO FEROZE", "26.8410879", "68.1265597"],
+            ["GOVERNMENT DEGREE COLLEGE MEHRABPUR", "27.1032664", "68.4179555"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE MEHRABPUR", "27.0863263", "68.31412"],
+            ["GOVT. GIRLS DEGREE COLLEGE PADIDAN", "26.7749452", "68.2981145"],
+            ["GOVT GIRLS DEGREE COLLEGE KHALIDABAD MORO", "24.8607343", "67.0011364"],
+            ["PSSSS GOVERNMENT DEGREE COLLEGE SANGHAR", "26.0499687", "68.9394131"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE SANGHAR", "26.0413615", "68.9444121"],
+            ["GOVERNMENT DEGREE COLLEGE KHIPRO", "24.8938496", "67.0826496"],
+            ["GOVERNMENT DEGREE COLLEGE SHAHDADPUR", "24.887296", "67.0564352"],
+            ["NEW ALI GARH DEGREE COLLEGE TANDO ADAM", "25.7703081", "68.6571829"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE TANDO ADAM", "25.7591136", "68.6557352"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE SHAHDADPUR", "24.8807424", "67.0662656"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE SHAHPUR CHAKAR", "26.1510015", "68.6399015"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE  SHAHPUR CHAKAR", "26.1477784", "68.6378067"],
+            ["GOVT BOYS DEGREE COLLEGE QAZI AHMED", "25.3959687", "68.357776"],
+            ["GOVERNMENT GIRLS COLLEGE DAULATPUR", "24.890572799999997", "67.0826496"],
+            ["GOVERNMENT COLLEGE BENAZIRABAD", "30.1858816", "71.4768384"],
+            ["GOVERNMENT S S COLLEGE NAWABSHAH", "30.179328", "71.4801152"],
+            ["GOVERNMENT S S COLLEGE SAKRAND BENAZIRABAD", "26.145583475032957", "68.27546183026234"],
+            ["GOVERNMENT COLLEGE DAULATPUR", "24.890572799999997", "67.0826496"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE NAWABSHAH", "27.9576576", "68.64896"],
+            ["GOVERNMENT GIRLS COLLEGE SAKRAND", "24.887296", "67.0564352"],
+            ["AISHA GIRLS DEGREE COLLEGE NAWABSHAH", "25.3959687", "68.357776"],
+            ["GOVERNMENT DEGREE COLLEGE GHOTKI", "27.9969651", "69.3151314"],
+            ["GOVERNMENT DEGREE COLLEGE MIRPUR MATHELO", "25.894301799999997", "68.52471489999999"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE DAHARKI", "28.0510482", "69.7010177"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE GHOTKI", "28.0023129", "69.3160722"],
+            ["GOVT BOYS DEGREE COLLEGE DHARKI", "28.048212", "69.7021857"],
+            ["JAM MUMTAZ HUSSAIN DAHAR GOVERNMENT DEGREE COLLEGE UBAURO", "28.1584831", "69.7273291"],
+            ["GOVT GIRLS DEGREE COLLEGE UBARO", "28.161632", "69.7273896"],
+            ["GOVT GIRLS DEGREE COLLEGE ADIL PUR", "27.9385867", "69.318971"],
+            ["SHAHEED NASEEM AHMED KHARL GOVERNMENT SUPERIOR SCIENCE COLLEGE KHAIRPUR", "27.5199562", "68.7433432"],
+            ["GOVERNMENT COLLEGE FOR WOMEN KHAIRPUR", "27.5276747", "68.757551"],
+            ["GOVERNMENT MUMTAZ COLLEGE KHAIRPUR", "27.519571", "68.7667313"],
+            ["PROFESSOR ATTA MUHAMMAD HAMI GOVERNMENT PAKISTAN COLLEGE KHAIRPUR", "27.5176917", "68.7615148"],
+            ["GOVERNMENT DEGREE SCIENCE COLLEGE GAMBAT", "27.5570498", "68.2027616"],
+            ["GOVERNMENT SACHAL SARMAST COLLEGE RANIPUR", "27.5570498", "68.2027616"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE PIR JO GOTH", "27.5738029", "68.6272566"],
+            ["GOVERNMENT DEGREE COLLEGE THARI MIR WAH", "27.0699882", "68.6145374"],
+            ["GOVERNMENT DEGREE COLLEGE KAROONDI", "25.3959687", "68.357776"],
+            ["GOVERNMENT DEGREE COLLEGE BOZDARWADA", "27.1710713", "68.6359436"],
+            ["GOVERNMENT DEGREE GIRLS COLLEGE GAMBAT", "25.894301799999997", "68.52471489999999"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE RANIPUR", "27.2921812", "68.5096234"],
+            ["GOVERNMENT M.A.R.S. GIRLS DEGREE COLLEGE KHUHRA", "27.3802078", "68.5159581"],
+            ["GOVT GIRLS DEGREE COLLEGE PIR-JO-GOTH", "24.8607343", "67.0011364"],
+            ["GOVERNMENT DEGREE COLLEGE KOTDIJI @ SIRAI PIYARO KHAN", "27.2917597", "68.5353348"],
+            ["GOVT. DEGREE COLLEGE (GIRLS) KUMB", "27.2931857", "68.6008296"],
+            ["GOVT DEGREE COLLEGE SOBHO DERO", "27.3092742", "68.4030508"],
+            ["GOVERNMENT DEGREE COLLE Drib Mehar   Mehar ShahHAR SHAH", "27.3907804", "68.5643997"],
+            ["GOVT BOYS  DEGREE COLLEGE KOT DIJI", "27.351421", "68.711769"],
+            ["GOVT DEGREE COLLEGE THERHI", "27.5481589", "68.7618874"],
+            ["GOVT GIRLS DEGREE COLLEGE SETHARJA", "27.1936184", "68.4730592"],
+            ["GOVERNMENT DEGREE BOYS COLLEGE SUKKUR", "27.7111394", "68.8486481"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE SUKKUR", "24.887296", "67.0564352"],
+            ["GOVERNMENT ISLAMIA ARTS & COMM COLLEGE POST GRADUATE STUDIES CENTER", "27.7243563", "68.8228082"],
+            ["GOVERNMENT ISLAMIA SCIENCE COLLEGE SUKKUR", "27.6989135", "68.8780446"],
+            ["GOVERNMENT AGHA NIZAMUDDIN GIRLS DEGREE COLLEGE SUKKUR", "27.6984366", "68.8673333"],
+            ["GOVERNMENT ATTA HUSSAIN SHAH DEGREE COLLEGE ROHRI", "25.894301799999997", "68.52471489999999"],
+            ["GOVERNMENT COLLEGE OF EDUCATION SUKKUR", "27.7086559", "68.84633"],
+            ["GOVERNMENT COLLEGE OF PHYSICAL EDUCATION SUKKUR", "24.8938496", "67.0826496"],
+            ["SHAHEED ABDUL AZIZ BULLO GOVERNMENT DEGREE COLLEGE PANO AKIL", "24.8741888", "67.0695424"],
+            ["GOVT DEGREE COLLEGE SALEH PAT", "27.5289829", "69.0413713"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE PANO AKIL", "25.894301799999997", "68.52471489999999"],
+            ["GOVERNMENT GIRLS COLLEGE SHIFTED TOPLOT -22 37\/C LANDHI KARACHI", "24.8408061", "67.1869014"],
+            ["GOVERNMENT DEGREE COLLEGE FOR WOMEN\r\nKORANGI NO.6 KARACHI", null, null],
+            ["GOVERNMENT S W DEGREE COLLEGE MANSOORAH MITIARI", "26.243891200000004", "68.3933696"],
+            ["GOVERNMENT COLLEGE FORINFORMATION TECHNOLOGY @ QASIMABADHYDERABAD", "25.4087839", "68.3393306"],
+            ["GOVERNMENT BOYS DEGREE COLLEGE DAUR", "26.4570488", "68.3178819"],
+            ["GOVERNMENT DEGREE COLLEGE 60 MILE", "26.375933", "68.437333"],
+            ["GOVERNMENT COLLEGE FOR INFORMATION AND TECHNOLOGY, HALA, MATIARI", "25.849187", "68.4160929"],
+            ["GOVERNMENT SHADANI DEGREE COLLEGE HAYAT PITAFI", "27.9945039", "69.5347909"],
+            ["GOVERNMENT DEGREE COLLEGE SACHAL GOTH, GHAZI GOTH KARACHI", "24.961355", "67.1479273"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE TANDO JAM", "25.4071342", "68.3656185"],
+            ["GOVERNMENT DEGREE COLLEGE MANJHAND", "25.9070291", "68.2365763"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE TANDO ALLAHYAR", null, null],
+            ["GOVERNMENT MODEL SCIENCE COLLEGE MIRPURKHAS", "25.52803236198233", "69.01577129370014"],
+            ["GOVERNMENT DEGREE COLLEGE MIRPURKHAS", "25.527450325540233", "69.01581682493173"],
+            ["GOVERNMENT DEGREE COLLEGE ISLAMKOT", "24.7379073", "69.8003653"],
+            ["GOVERNMENT DEGREE COLLEGE GARHI YASEEN", "27.9073259", "68.5114635"],
+            ["GOVERNMENT GIRLS DEGREE COLLEGE MADEGI SHIKARPUR", "24.8741888", "67.059712"]
+        ];
+        mapboxgl.accessToken = 'pk.eyJ1IjoidXNhbWE5Mjk4OSIsImEiOiJja3NuNHFxeGkwMG8zMnZ0aWhyM3lndGp4In0.C-4dFLS_IZ9GX2-Iq2zLQg';
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            // scrollZoom: false,
+            // center: [66.6447878, 26.1406948],
+            // zoom: 4
+        });
+
+        const bounds = new mapboxgl.LngLatBounds();
+
+        for (i = 0; i < locations.length; i++) {
+
+            if (locations[i][2] != null && locations[i][2] != "") {
+                const el = document.createElement('div');
+                el.className = 'marker';
+
+                // Add popup
+                var popup = new mapboxgl.Popup({
+                        offset: 30,
+                    })
+                    .setLngLat([locations[i][2], locations[i][1]])
+                    .setHTML(`<p>${locations[i][0]}</p>`);
+
+                // Add marker
+                new mapboxgl.Marker({
+                        element: el,
+                        anchor: 'bottom',
+                    })
+                    .setLngLat([locations[i][2], locations[i][1]])
+                    .setPopup(popup)
+                    .addTo(map);
+
+
+
+
+                // Extend map bounds to include current location
+                bounds.extend([locations[i][2], locations[i][1]]);
+            }
+
+        }
+
+        map.fitBounds(bounds, {
+            padding: {
+                top: 200,
+                bottom: 150,
+                left: 100,
+                right: 100,
+            },
+        });
+    </script>
+
+    <script src="script.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#region').on('change', function() {
+                var region_ID = $(this).val();
+                if (region_ID) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ajax/show_districts.php',
+                        data: 'region_id=' + region_ID,
+                        success: function(html) {
+                            $('#district').html(html);
+                            filter_data();
+                        }
+                    });
+
+                }
+            });
+
+            $('#region').on('change', function() {
+                var region_ID = $(this).val();
+                if (region_ID) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ajax/show_towns.php',
+                        data: 'region_id=' + region_ID,
+                        success: function(html) {
+                            $('#town').html(html);
+                            filter_data();
+                        }
+                    });
+
+                }
+            });
+
+            $('#district').on('change', function() {
+                var district_ID = $(this).val();
+                if (district_ID) {
+                    $.ajax({
+                        type: 'POST',
+                        url: 'ajax/show_towns.php',
+                        data: 'district_id=' + district_ID,
+                        success: function(html) {
+                            $('#town').html(html);
+                            filter_data();
+                        }
+                    });
+                }
+            });
+
+            filter_data();
+
+            function filter_data() {
+                var action = 'fetch_colleges_list';
+                var get_count = 'get_count';
+                var region = $('#region').val();
+                var district = $('#district').val();
+                var town = $('#town').val();
+                var gender = $('#gender').val();
+                $.ajax({
+                    url: "ajax/fetch_colleges_list.php",
+                    method: "POST",
+                    data: {
+                        action: action,
+                        region: region,
+                        district: district,
+                        town: town,
+                        gender: gender
+                    },
+                    success: function(data) {
+                        $('.filter_data').html(data);
+                    }
+                });
+                $.ajax({
+                    url: "ajax/fetch_colleges_list.php",
+                    method: "POST",
+                    data: {
+                        get_count: get_count,
+                        region: region,
+                        district: district,
+                        town: town,
+                        gender: gender
+                    },
+                    success: function(data) {
+                        $('.found').html(data);
+
+                    }
+                });
+            }
+
+            function get_filter(class_name) {
+                var filter = [];
+                $('.' + class_name + ':checked').each(function() {
+                    filter.push($(this).val());
+                });
+                return filter;
+            }
+
+            $('#town').on('change', function() {
+                filter_data();
+            });
+
+            $('#gender').on('change', function() {
+                filter_data();
+            });
+
+            $("#search").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#collegesTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+        });
+    </script>
+
+
+
+</body>
+
+</html>
